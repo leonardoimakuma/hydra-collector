@@ -7,6 +7,9 @@ from hydra_scout.collect import live_odds_logger as lol
 
 FIXTURE = os.path.join(os.path.dirname(__file__), "fixtures", "scoreboard_sample.json")
 SUMMARY_FIXTURE = os.path.join(os.path.dirname(__file__), "fixtures", "summary_sample.json")
+ROSTERS_FIXTURE = os.path.join(os.path.dirname(__file__), "fixtures", "summary_rosters_sample.json")
+PRELINEUP_FIXTURE = os.path.join(os.path.dirname(__file__), "fixtures", "summary_prelineup_sample.json")
+PREKICKOFF_FIXTURE = os.path.join(os.path.dirname(__file__), "fixtures", "summary_prekickoff_lineups_sample.json")
 
 
 def _events():
@@ -294,3 +297,114 @@ def test_closing_falls_back_to_current_row_if_no_pre_row_cached(tmp_path):
     logger._track_closing("E3", live)
     rows = logger.db.execute("SELECT event_id, ml_home FROM closing_odds").fetchall()
     assert rows == [("E3", 180)]
+
+
+# ---------------------------------------------------------------- lineups (real captured /summary rosters)
+
+def _rosters():
+    return json.load(open(ROSTERS_FIXTURE))
+
+
+def test_parse_lineups_real_rosters():
+    """Real ESPN /summary (WSL Manchester United v West Ham, 2026-09-27): 20 listed per side, 11 starters."""
+    rows = lol.parse_lineups(_rosters(), event_id="401902905", league_slug="eng.w.1", state="pre")
+    assert len(rows) == 40
+    home = [r for r in rows if r["team_side"] == "home"]
+    assert {r["team_name"] for r in home} == {"Manchester United"} and home[0]["formation"] == "4-2-3-1"
+    assert sum(r["starter"] for r in home) == 11 and sum(r["starter"] for r in rows) == 22
+    gk = home[0]
+    assert gk["player"] == "Phallon Tullis-Joyce" and gk["athlete_id"] == "208938"
+    assert gk["position"] == "Goalkeeper" and gk["position_abbr"] == "G" and gk["jersey"] == "91"
+    assert gk["starter"] == 1 and gk["formation_place"] == "1" and gk["state"] == "pre"
+    assert set(rows[0]) == set(lol.LINEUP_FIELDS) - {"ts_utc"}
+    assert lol.lineups_confirmed(rows) is True
+
+
+def test_parse_lineups_real_pre_kickoff_payload():
+    """Real ESPN /summary 58 min before kickoff (WSL Chelsea v Arsenal, 2026-09-27 14:32Z): teams are out,
+    and subbedIn/subbedOut come as {"didSub": false} dicts rather than the post-match bools."""
+    pre = json.load(open(PREKICKOFF_FIXTURE))
+    assert pre["header"]["competitions"][0]["status"]["type"]["state"] == "pre"
+    rows = lol.parse_lineups(pre, "401902901", "eng.w.1", "pre")
+    assert len(rows) == 40 and sum(r["starter"] for r in rows) == 22
+    assert {r["formation"] for r in rows if r["team_side"] == "home"} == {"4-3-3"}
+    assert all(r["subbed_in"] == 0 and r["subbed_out"] == 0 for r in rows)
+    assert lol.lineups_confirmed(rows)
+    assert lol._flag({"didSub": True}) == 1 and lol._flag(True) == 1 and lol._flag(None) == 0
+
+
+def test_parse_lineups_before_announcement_is_empty():
+    pre = json.load(open(PRELINEUP_FIXTURE))
+    assert pre["rosters"] and all("roster" not in t or not t["roster"] for t in pre["rosters"])
+    assert lol.parse_lineups(pre, "401902901", "eng.w.1", "pre") == []
+    assert lol.parse_lineups(None, "E", None, "pre") == [] and lol.parse_lineups({"rosters": [None]}, "E", None, "pre") == []
+    assert lol.lineups_confirmed([]) is False
+    partial = [{"team_id": "1", "starter": 1}] * 10
+    assert lol.lineups_confirmed(partial) is False
+
+
+def test_lineups_insert_or_ignore_keeps_first_seen(tmp_path):
+    db = sqlite3.connect(str(tmp_path / "t.sqlite"))
+    lol.ensure_lineups_table(db)
+    rows = lol.parse_lineups(_rosters(), "401902905", "eng.w.1", "pre")
+    for r in rows:
+        r["ts_utc"] = "2026-09-27T11:00:00Z"
+    assert lol.insert_lineup_rows(db, rows) == 40
+    later = [dict(r, ts_utc="2026-09-27T11:05:00Z", state="in") for r in rows]
+    assert lol.insert_lineup_rows(db, later) == 0
+    assert db.execute("SELECT DISTINCT ts_utc, state FROM lineups").fetchall() == [("2026-09-27T11:00:00Z", "pre")]
+    assert lol.has_lineups(db, "401902905") and not lol.has_lineups(db, "other")
+
+
+def _pre_event(event_id, kickoff):
+    return {"id": event_id, "date": kickoff, "competitions": [{"status": {"type": {"state": "pre"}}}]}
+
+
+def test_lineup_due_window_interval_and_done(tmp_path):
+    logger = lol.LiveOddsLogger(db_path=str(tmp_path / "l.sqlite"), slugs=[], lineup_window_min=75, lineup_interval=300)
+    now = datetime(2026, 9, 27, 12, 0, tzinfo=timezone.utc)
+    assert logger._lineup_due("E1", _pre_event("E1", "2026-09-27T13:00Z"), now=now) is True      # 60 min out
+    assert logger._lineup_due("E2", _pre_event("E2", "2026-09-27T14:00Z"), now=now) is False     # 120 min out
+    logger._last_lineup_poll["E1"] = __import__("time").time()
+    assert logger._lineup_due("E1", _pre_event("E1", "2026-09-27T13:00Z"), now=now) is False     # polled < 300 s ago
+    logger._lineups_done.add("E3")
+    assert logger._lineup_due("E3", _pre_event("E3", "2026-09-27T12:30Z"), now=now) is False     # already captured
+    off = lol.LiveOddsLogger(db_path=str(tmp_path / "o.sqlite"), slugs=[], lineup_window_min=0)
+    assert off._lineup_due("E1", _pre_event("E1", "2026-09-27T12:30Z"), now=now) is False
+
+
+def test_store_lineups_once_per_event(tmp_path):
+    logger = lol.LiveOddsLogger(db_path=str(tmp_path / "s.sqlite"), slugs=[])
+    row = {"ts_utc": "2026-09-27T11:00:00Z", "league_slug": "eng.w.1", "state": "pre"}
+    logger._store_lineups(json.load(open(PRELINEUP_FIXTURE)), "401902905", row)   # not announced yet
+    assert "401902905" not in logger._lineups_done
+    logger._store_lineups(_rosters(), "401902905", row)
+    assert "401902905" in logger._lineups_done
+    logger._store_lineups(_rosters(), "401902905", dict(row, ts_utc="2026-09-27T11:05:00Z", state="in"))
+    assert logger.db.execute("SELECT COUNT(*), MIN(ts_utc), MAX(ts_utc) FROM lineups").fetchone() == (40, "2026-09-27T11:00:00Z", "2026-09-27T11:00:00Z")
+    # a fresh logger on the same db recognises the event as done without another insert
+    logger.db.commit()
+    again = lol.LiveOddsLogger(db_path=str(tmp_path / "s.sqlite"), slugs=[])
+    assert again._lineups_known("401902905") is True
+
+
+def test_poll_once_fetches_pre_match_lineups(tmp_path, monkeypatch):
+    """poll_once: a 'pre' event 30 min out triggers one /summary call for lineups; the same tick does
+    not re-poll it and a second tick inside lineup_interval doesn't either."""
+    ko = (datetime.now(timezone.utc).replace(second=0, microsecond=0) + __import__("datetime").timedelta(minutes=30))
+    event = {"id": "401902901", "date": ko.strftime("%Y-%m-%dT%H:%MZ"),
+             "competitions": [{"status": {"type": {"state": "pre"}}, "competitors": [], "odds": []}]}
+    calls = []
+
+    def fake_get(session, url, timeout=15.0, retries=3):
+        calls.append(url)
+        if "scoreboard" in url:
+            return {"events": [event]}
+        return json.load(open(PREKICKOFF_FIXTURE))
+    monkeypatch.setattr(lol, "_get_json", fake_get)
+    logger = lol.LiveOddsLogger(db_path=str(tmp_path / "p.sqlite"), slugs=[])
+    logger.poll_once()
+    assert sum("summary" in u for u in calls) == 1
+    assert logger.db.execute("SELECT COUNT(*), MIN(state) FROM lineups").fetchone() == (40, "pre")
+    logger.poll_once()
+    assert sum("summary" in u for u in calls) == 1        # captured: no further lineup polls

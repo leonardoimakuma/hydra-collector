@@ -29,19 +29,23 @@ Europa/Conference League, MLS, Liga MX, Argentine Liga Profesional, Primeira Lig
 ESPN's own `all` slug, polled every tick, which covers ~100 events/day across every competition ESPN
 carries (the named slugs are a periodic sweep so a busy domestic day isn't clipped by `all`'s page size).
 
-`hydra_scout/collect/export.py` flattens the sqlite tables into gzipped daily CSVs under
-`data/live/<YYYY-MM-DD>/{odds,stats,events,closing}.csv.gz`.
+- **`lineups`** — confirmed starting XIs + bench (team, player, ESPN athlete id, position, starter flag,
+  jersey, formation) from `/summary`'s `rosters`, stored once per event: every pre-match event kicking
+  off within 75 min is polled every 5 min until ESPN publishes the teams (~60 min before kickoff).
 
-`data/fd/*.csv` — daily snapshot of football-data.co.uk's Big-5 (`E0`/`SP1`/`D1`/`I1`/`F1`) and
-Brasileirão (`BRA`) CSVs for the current season, the closing-line benchmark the rest of Hydra already
-uses.
+`hydra_scout/collect/export.py` flattens the sqlite tables into gzipped daily CSVs under
+`data/live/<YYYY-MM-DD>/{odds,stats,events,closing,lineups}.csv.gz`.
+
+### Player props
+
+Bookmaker prop odds are archived in a separate PRIVATE repo (`hydra-props`), because the odds provider's terms forbid redistributing its data. This public repo only holds ESPN-derived live data and football-data CSVs.
 
 ## Cost: $0
 
 - GitHub Actions is **free and unmetered on standard runners for public repositories** — this only
   works because the repo is public. (A private repo gets 2,000 free minutes/month on GitHub Free,
   which this workflow would burn through in a few days.)
-- No server, no paid API, no key of any kind.
+- No server, no paid API, no keys: ESPN's public scoreboard/summary JSON and football-data CSVs only.
 
 ## Set this up (one time)
 

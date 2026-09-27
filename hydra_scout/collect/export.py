@@ -1,6 +1,6 @@
 """
-Exports the live_odds_logger sqlite tables (live_odds, live_stats, key_events, closing_odds) for one
-UTC calendar day into gzipped CSVs under <out-dir>/<day>/{odds,stats,events,closing}.csv.gz.
+Exports the live_odds_logger sqlite tables (live_odds, live_stats, key_events, closing_odds, lineups)
+for one UTC calendar day into gzipped CSVs under <out-dir>/<day>/{odds,stats,events,closing,lineups}.csv.gz.
 
 Built to be append-safe across repeated runs against the same day: a GitHub Actions job only ever
 holds one run's worth of sqlite data (each job starts a fresh sqlite file), but up to four jobs a day
@@ -24,7 +24,7 @@ import os
 import sqlite3
 from datetime import datetime, timezone
 
-from .live_odds_logger import EVENT_FIELDS, FIELDS as ODDS_FIELDS, STATS_FIELDS
+from .live_odds_logger import EVENT_FIELDS, FIELDS as ODDS_FIELDS, LINEUP_FIELDS, STATS_FIELDS
 
 DEFAULT_DB = os.path.join(os.path.expanduser(os.getenv("HYDRA_HOME", "~/.hydra_scout")), "live_odds.sqlite")
 DEFAULT_OUT_DIR = "data/live"
@@ -35,6 +35,7 @@ EXPORTS: dict[str, tuple[str, list[str], str, tuple[str, ...]]] = {
     "stats": ("live_stats", STATS_FIELDS, "ts_utc", ("event_id", "team_id", "ts_utc")),
     "events": ("key_events", EVENT_FIELDS, "ts_utc", ("event_id", "espn_event_id")),
     "closing": ("closing_odds", ODDS_FIELDS, "ts_utc", ("event_id",)),
+    "lineups": ("lineups", LINEUP_FIELDS, "ts_utc", ("event_id", "team_id", "athlete_id")),
 }
 
 
@@ -90,7 +91,7 @@ def write_csv_gz(path: str, rows: list[dict], fields: list[str]) -> None:
 
 
 def export_day(day: str, db_path: str | None = None, out_dir: str | None = None) -> dict[str, int]:
-    """Writes/updates {odds,stats,events,closing}.csv.gz under <out_dir>/<day>/ for one UTC day.
+    """Writes/updates {odds,stats,events,closing,lineups}.csv.gz under <out_dir>/<day>/ for one UTC day.
     Returns the post-merge row count for each. Safe to call repeatedly (including with no new data,
     or against a sqlite file that doesn't exist yet) — see module docstring."""
     db_path = db_path or DEFAULT_DB

@@ -1,0 +1,989 @@
+{
+ "_note": "ESPN /summary for event 401902901 (WSL, Chelsea v Arsenal, KO 2026-09-27T15:30Z) fetched 14:32Z, 58 min before kickoff, trimmed to header + rosters",
+ "header": {
+  "id": "401902901",
+  "league": {
+   "id": "8097",
+   "name": "English Women's Super League",
+   "slug": "eng.w.1"
+  },
+  "competitions": [
+   {
+    "date": "2026-09-27T15:30Z",
+    "status": {
+     "type": {
+      "id": "1",
+      "name": "STATUS_SCHEDULED",
+      "state": "pre",
+      "completed": false,
+      "description": "Scheduled",
+      "detail": "Sun, September 27th at 11:30 AM EDT",
+      "shortDetail": "9/27 - 11:30 AM EDT"
+     }
+    },
+    "competitors": [
+     {
+      "homeAway": "home",
+      "team": {
+       "id": "19970",
+       "displayName": "Chelsea"
+      }
+     },
+     {
+      "homeAway": "away",
+      "team": {
+       "id": "19973",
+       "displayName": "Arsenal"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "rosters": [
+  {
+   "homeAway": "home",
+   "winner": false,
+   "formation": "4-3-3",
+   "team": {
+    "id": "19970",
+    "displayName": "Chelsea",
+    "abbreviation": "CHE"
+   },
+   "roster": [
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "24",
+     "athlete": {
+      "id": "312460",
+      "displayName": "Hannah Hampton",
+      "fullName": "Hannah Hampton",
+      "shortName": "H. Hampton"
+     },
+     "position": {
+      "name": "Goalkeeper",
+      "displayName": "Goalkeeper",
+      "abbreviation": "G"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "1"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "26",
+     "athlete": {
+      "id": "209937",
+      "displayName": "Kadeisha Buchanan",
+      "fullName": "Kadeisha Buchanan",
+      "shortName": "K. Buchanan"
+     },
+     "position": {
+      "name": "Center Left Defender",
+      "displayName": "Center Left Defender",
+      "abbreviation": "CD-L"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "6"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "22",
+     "athlete": {
+      "id": "188448",
+      "displayName": "Lucy Bronze",
+      "fullName": "Lucy Bronze",
+      "shortName": "L. Bronze"
+     },
+     "position": {
+      "name": "Center Right Defender",
+      "displayName": "Center Right Defender",
+      "abbreviation": "CD-R"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "5"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "15",
+     "athlete": {
+      "id": "219079",
+      "displayName": "Katie McCabe",
+      "fullName": "Katie McCabe",
+      "shortName": "K. McCabe"
+     },
+     "position": {
+      "name": "Left Back",
+      "displayName": "Left Back",
+      "abbreviation": "LB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "3"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "2",
+     "athlete": {
+      "id": "236710",
+      "displayName": "Ellie Carpenter",
+      "fullName": "Ellie Carpenter",
+      "shortName": "E. Carpenter"
+     },
+     "position": {
+      "name": "Right Back",
+      "displayName": "Right Back",
+      "abbreviation": "RB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "2"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "21",
+     "athlete": {
+      "id": "268099",
+      "displayName": "Keira Walsh",
+      "fullName": "Keira Walsh",
+      "shortName": "K. Walsh"
+     },
+     "position": {
+      "name": "Center Midfielder",
+      "displayName": "Center Midfielder",
+      "abbreviation": "CM"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "4"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "19",
+     "athlete": {
+      "id": "315453",
+      "displayName": "Wieke Kaptein",
+      "fullName": "Wieke Kaptein",
+      "shortName": "W. Kaptein"
+     },
+     "position": {
+      "name": "Left Midfielder",
+      "displayName": "Left Midfielder",
+      "abbreviation": "LM"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "8"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "32",
+     "athlete": {
+      "id": "377622",
+      "displayName": "Lexi Potter",
+      "fullName": "Lexi Potter",
+      "shortName": "L. Potter"
+     },
+     "position": {
+      "name": "Right Midfielder",
+      "displayName": "Right Midfielder",
+      "abbreviation": "RM"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "7"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "10",
+     "athlete": {
+      "id": "294253",
+      "displayName": "Lauren James",
+      "fullName": "Lauren James",
+      "shortName": "L. James"
+     },
+     "position": {
+      "name": "Forward",
+      "displayName": "Forward",
+      "abbreviation": "F"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "9"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "9",
+     "athlete": {
+      "id": "295670",
+      "displayName": "Melvine Malard",
+      "fullName": "Melvine Malard",
+      "shortName": "M. Malard"
+     },
+     "position": {
+      "name": "Left Forward",
+      "displayName": "Left Forward",
+      "abbreviation": "LF"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "11"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "12",
+     "athlete": {
+      "id": "351658",
+      "displayName": "Alyssa Thompson",
+      "fullName": "Alyssa Thompson",
+      "shortName": "A. Thompson"
+     },
+     "position": {
+      "name": "Right Forward",
+      "displayName": "Right Forward",
+      "abbreviation": "RF"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "10"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "11",
+     "athlete": {
+      "id": "295673",
+      "displayName": "Sandy Baltimore",
+      "fullName": "Sandy Baltimore",
+      "shortName": "S. Baltimore"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "5",
+     "athlete": {
+      "id": "359616",
+      "displayName": "Veerle Buurman",
+      "fullName": "Veerle Buurman",
+      "shortName": "V. Buurman"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "14",
+     "athlete": {
+      "id": "255181",
+      "displayName": "Nathalie Björn",
+      "fullName": "Nathalie Björn",
+      "shortName": "N. Björn"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "16",
+     "athlete": {
+      "id": "361599",
+      "displayName": "Giulia Dragoni",
+      "fullName": "Giulia Dragoni",
+      "shortName": "G. Dragoni"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "23",
+     "athlete": {
+      "id": "351356",
+      "displayName": "Maika Hamano",
+      "fullName": "Maika Hamano",
+      "shortName": "M. Hamano"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "4",
+     "athlete": {
+      "id": "283720",
+      "displayName": "Naomi Girma",
+      "fullName": "Naomi Girma",
+      "shortName": "N. Girma"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "6",
+     "athlete": {
+      "id": "314382",
+      "displayName": "Sjoeke Nüsken",
+      "fullName": "Sjoeke Nüsken",
+      "shortName": "S. Nüsken"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "1",
+     "athlete": {
+      "id": "310900",
+      "displayName": "Livia Peng",
+      "fullName": "Livia Peng",
+      "shortName": "L. Peng"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "33",
+     "athlete": {
+      "id": "313088",
+      "displayName": "Aggie Beever-Jones",
+      "fullName": "Aggie Beever-Jones",
+      "shortName": "A. Beever-Jones"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    }
+   ]
+  },
+  {
+   "homeAway": "away",
+   "winner": false,
+   "formation": "4-2-3-1",
+   "team": {
+    "id": "19973",
+    "displayName": "Arsenal",
+    "abbreviation": "ARS"
+   },
+   "roster": [
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "28",
+     "athlete": {
+      "id": "392913",
+      "displayName": "Anneke Borbe",
+      "fullName": "Anneke Borbe",
+      "shortName": "A. Borbe"
+     },
+     "position": {
+      "name": "Goalkeeper",
+      "displayName": "Goalkeeper",
+      "abbreviation": "G"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "1"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "22",
+     "athlete": {
+      "id": "286327",
+      "displayName": "Ona Batlle",
+      "fullName": "Ona Batlle",
+      "shortName": "O. Batlle"
+     },
+     "position": {
+      "name": "Center Left Defender",
+      "displayName": "Center Left Defender",
+      "abbreviation": "CD-L"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "6"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "6",
+     "athlete": {
+      "id": "268100",
+      "displayName": "Leah Williamson",
+      "fullName": "Leah Williamson",
+      "shortName": "L. Williamson"
+     },
+     "position": {
+      "name": "Center Right Defender",
+      "displayName": "Center Right Defender",
+      "abbreviation": "CD-R"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "5"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "7",
+     "athlete": {
+      "id": "219822",
+      "displayName": "Steph Catley",
+      "fullName": "Steph Catley",
+      "shortName": "S. Catley"
+     },
+     "position": {
+      "name": "Left Back",
+      "displayName": "Left Back",
+      "abbreviation": "LB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "3"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "2",
+     "athlete": {
+      "id": "263684",
+      "displayName": "Emily Fox",
+      "fullName": "Emily Fox",
+      "shortName": "E. Fox"
+     },
+     "position": {
+      "name": "Right Back",
+      "displayName": "Right Back",
+      "abbreviation": "RB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "2"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "8",
+     "athlete": {
+      "id": "257473",
+      "displayName": "Mariona Caldentey",
+      "fullName": "Mariona Caldentey",
+      "shortName": "M. Caldentey"
+     },
+     "position": {
+      "name": "Attacking Midfielder",
+      "displayName": "Attacking Midfielder",
+      "abbreviation": "AM"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "10"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "4",
+     "athlete": {
+      "id": "271567",
+      "displayName": "Georgia Stanway",
+      "fullName": "Georgia Stanway",
+      "shortName": "G. Stanway"
+     },
+     "position": {
+      "name": "Left Midfielder",
+      "displayName": "Left Midfielder",
+      "abbreviation": "LM"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "4"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "32",
+     "athlete": {
+      "id": "288907",
+      "displayName": "Kyra Cooney-Cross",
+      "fullName": "Kyra Cooney-Cross",
+      "shortName": "K. Cooney-Cross"
+     },
+     "position": {
+      "name": "Right Midfielder",
+      "displayName": "Right Midfielder",
+      "abbreviation": "RM"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "8"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "23",
+     "athlete": {
+      "id": "263683",
+      "displayName": "Alessia Russo",
+      "fullName": "Alessia Russo",
+      "shortName": "A. Russo"
+     },
+     "position": {
+      "name": "Forward",
+      "displayName": "Forward",
+      "abbreviation": "F"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "9"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "10",
+     "athlete": {
+      "id": "176041",
+      "displayName": "Kim Little",
+      "fullName": "Kim Little",
+      "shortName": "K. Little"
+     },
+     "position": {
+      "name": "Attacking Midfielder Left",
+      "displayName": "Attacking Midfielder Left",
+      "abbreviation": "AM-L"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "11"
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "19",
+     "athlete": {
+      "id": "3114368",
+      "displayName": "Lisa Baum",
+      "fullName": "Lisa Baum",
+      "shortName": "L. Baum"
+     },
+     "position": {
+      "name": "Attacking Midfielder Right",
+      "displayName": "Attacking Midfielder Right",
+      "abbreviation": "AM-R"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "7"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "16",
+     "athlete": {
+      "id": "317627",
+      "displayName": "Misa Rodríguez",
+      "fullName": "Misa Rodríguez",
+      "shortName": "M. Rodríguez"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "11",
+     "athlete": {
+      "id": "279337",
+      "displayName": "Olivia Smith",
+      "fullName": "Olivia Smith",
+      "shortName": "O. Smith"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "14",
+     "athlete": {
+      "id": "257466",
+      "displayName": "Géraldine Reuteler",
+      "fullName": "Géraldine Reuteler",
+      "shortName": "G. Reuteler"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "31",
+     "athlete": {
+      "id": "392934",
+      "displayName": "Smilla Holmberg",
+      "fullName": "Smilla Holmberg",
+      "shortName": "S. Holmberg"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "29",
+     "athlete": {
+      "id": "336004",
+      "displayName": "Selina Cerci",
+      "fullName": "Selina Cerci",
+      "shortName": "S. Cerci"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "18",
+     "athlete": {
+      "id": "282993",
+      "displayName": "Chloe Kelly",
+      "fullName": "Chloe Kelly",
+      "shortName": "C. Kelly"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "3",
+     "athlete": {
+      "id": "263682",
+      "displayName": "Lotte Wubben-Moy",
+      "fullName": "Lotte Wubben-Moy",
+      "shortName": "L. Wubben-Moy"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "9",
+     "athlete": {
+      "id": "158678",
+      "displayName": "Caitlin Foord",
+      "fullName": "Caitlin Foord",
+      "shortName": "C. Foord"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "25",
+     "athlete": {
+      "id": "240274",
+      "displayName": "Stina Blackstenius",
+      "fullName": "Stina Blackstenius",
+      "shortName": "S. Blackstenius"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": {
+      "didSub": false
+     },
+     "subbedOut": {
+      "didSub": false
+     },
+     "formationPlace": "0"
+    }
+   ]
+  }
+ ]
+}

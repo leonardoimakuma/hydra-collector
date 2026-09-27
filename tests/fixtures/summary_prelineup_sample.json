@@ -1,0 +1,63 @@
+{
+ "_note": "ESPN /summary for event 401902901 (WSL, Chelsea v Arsenal) fetched 2026-09-27 ~14:10Z, before lineups were announced",
+ "header": {
+  "id": "401902901",
+  "league": {
+   "id": "8097",
+   "name": "English Women's Super League",
+   "slug": "eng.w.1"
+  },
+  "competitions": [
+   {
+    "date": "2026-09-27T15:30Z",
+    "status": {
+     "type": {
+      "id": "1",
+      "name": "STATUS_SCHEDULED",
+      "state": "pre",
+      "completed": false,
+      "description": "Scheduled",
+      "detail": "Sun, September 27th at 11:30 AM EDT",
+      "shortDetail": "9/27 - 11:30 AM EDT"
+     }
+    },
+    "competitors": [
+     {
+      "homeAway": "home",
+      "team": {
+       "id": "19970",
+       "displayName": "Chelsea"
+      }
+     },
+     {
+      "homeAway": "away",
+      "team": {
+       "id": "19973",
+       "displayName": "Arsenal"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "rosters": [
+  {
+   "homeAway": "home",
+   "winner": false,
+   "team": {
+    "id": "19970",
+    "displayName": "Chelsea",
+    "abbreviation": "CHE"
+   }
+  },
+  {
+   "homeAway": "away",
+   "winner": false,
+   "team": {
+    "id": "19973",
+    "displayName": "Arsenal",
+    "abbreviation": "ARS"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1549 @@
+{
+ "_note": "ESPN /summary for event 401902905 (WSL, Manchester United v West Ham, finished 2026-09-27), trimmed to header + rosters",
+ "header": {
+  "id": "401902905",
+  "league": {
+   "id": "8097",
+   "name": "English Women's Super League",
+   "slug": "eng.w.1"
+  },
+  "competitions": [
+   {
+    "date": "2026-09-27T12:00Z",
+    "status": {
+     "type": {
+      "id": "28",
+      "name": "STATUS_FULL_TIME",
+      "state": "post",
+      "completed": true,
+      "description": "Full Time",
+      "detail": "FT",
+      "shortDetail": "FT"
+     }
+    },
+    "competitors": [
+     {
+      "homeAway": "home",
+      "team": {
+       "id": "20061",
+       "displayName": "Manchester United"
+      }
+     },
+     {
+      "homeAway": "away",
+      "team": {
+       "id": "19975",
+       "displayName": "West Ham United"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "rosters": [
+  {
+   "homeAway": "home",
+   "winner": true,
+   "formation": "4-2-3-1",
+   "team": {
+    "id": "20061",
+    "displayName": "Manchester United",
+    "abbreviation": "MAN"
+   },
+   "roster": [
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "91",
+     "athlete": {
+      "id": "208938",
+      "displayName": "Phallon Tullis-Joyce",
+      "fullName": "Phallon Tullis-Joyce",
+      "shortName": "P. Tullis-Joyce"
+     },
+     "position": {
+      "name": "Goalkeeper",
+      "displayName": "Goalkeeper",
+      "abbreviation": "G"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "1",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "17",
+     "athlete": {
+      "id": "219947",
+      "displayName": "Dominique Janssen",
+      "fullName": "Dominique Janssen",
+      "shortName": "D. Janssen"
+     },
+     "position": {
+      "name": "Center Left Defender",
+      "displayName": "Center Left Defender",
+      "abbreviation": "CD-L"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "6",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "4",
+     "athlete": {
+      "id": "312462",
+      "displayName": "Maya Le Tissier",
+      "fullName": "Maya Le Tissier",
+      "shortName": "M. Le Tissier"
+     },
+     "position": {
+      "name": "Center Right Defender",
+      "displayName": "Center Right Defender",
+      "abbreviation": "CD-R"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "5",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "1"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "2",
+     "athlete": {
+      "id": "359233",
+      "displayName": "Anna Sandberg",
+      "fullName": "Anna Sandberg",
+      "shortName": "A. Sandberg"
+     },
+     "position": {
+      "name": "Left Back",
+      "displayName": "Left Back",
+      "abbreviation": "LB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "3",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "1"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "5",
+     "athlete": {
+      "id": "335586",
+      "displayName": "Hanna Lundkvist",
+      "fullName": "Hanna Lundkvist",
+      "shortName": "H. Lundkvist"
+     },
+     "position": {
+      "name": "Right Back",
+      "displayName": "Right Back",
+      "abbreviation": "RB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "2",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "1"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "2"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "7",
+     "athlete": {
+      "id": "294255",
+      "displayName": "Ella Toone",
+      "fullName": "Ella Toone",
+      "shortName": "E. Toone"
+     },
+     "position": {
+      "name": "Attacking Midfielder",
+      "displayName": "Attacking Midfielder",
+      "abbreviation": "AM"
+     },
+     "subbedIn": false,
+     "subbedOut": true,
+     "formationPlace": "10",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "1"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "1"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "20",
+     "athlete": {
+      "id": "283107",
+      "displayName": "Hinata Miyazawa",
+      "fullName": "Hinata Miyazawa",
+      "shortName": "H. Miyazawa"
+     },
+     "position": {
+      "name": "Left Midfielder",
+      "displayName": "Left Midfielder",
+      "abbreviation": "LM"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "4",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "15",
+     "athlete": {
+      "id": "280997",
+      "displayName": "Julia Zigiotti Olme",
+      "fullName": "Julia Zigiotti Olme",
+      "shortName": "J. Zigiotti Olme"
+     },
+     "position": {
+      "name": "Right Midfielder",
+      "displayName": "Right Midfielder",
+      "abbreviation": "RM"
+     },
+     "subbedIn": false,
+     "subbedOut": true,
+     "formationPlace": "8",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "1"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "10",
+     "athlete": {
+      "id": "298669",
+      "displayName": "Elisabeth Terland",
+      "fullName": "Elisabeth Terland",
+      "shortName": "E. Terland"
+     },
+     "position": {
+      "name": "Forward",
+      "displayName": "Forward",
+      "abbreviation": "F"
+     },
+     "subbedIn": false,
+     "subbedOut": true,
+     "formationPlace": "9",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "2"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "1"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "2"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "6",
+     "athlete": {
+      "id": "333528",
+      "displayName": "Andrea Medina",
+      "fullName": "Andrea Medina",
+      "shortName": "A. Medina"
+     },
+     "position": {
+      "name": "Attacking Midfielder Left",
+      "displayName": "Attacking Midfielder Left",
+      "abbreviation": "AM-L"
+     },
+     "subbedIn": false,
+     "subbedOut": true,
+     "formationPlace": "11",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "1"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "1"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "3"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "8",
+     "athlete": {
+      "id": "296503",
+      "displayName": "Jess Park",
+      "fullName": "Jess Park",
+      "shortName": "J. Park"
+     },
+     "position": {
+      "name": "Attacking Midfielder Right",
+      "displayName": "Attacking Midfielder Right",
+      "abbreviation": "AM-R"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "7",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "1"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "4"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "27",
+     "athlete": {
+      "id": "416457",
+      "displayName": "Layla Drury",
+      "fullName": "Layla Drury",
+      "shortName": "L. Drury"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "24",
+     "athlete": {
+      "id": "258844",
+      "displayName": "Lea Schüller",
+      "fullName": "Lea Schüller",
+      "shortName": "L. Schüller"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": true,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "13",
+     "athlete": {
+      "id": "349220",
+      "displayName": "Simi Awujo",
+      "fullName": "Simi Awujo",
+      "shortName": "S. Awujo"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": true,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "2"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "25",
+     "athlete": {
+      "id": "328082",
+      "displayName": "Janina Leitzig",
+      "fullName": "Janina Leitzig",
+      "shortName": "J. Leitzig"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "23",
+     "athlete": {
+      "id": "374909",
+      "displayName": "Monica Jusu Bah",
+      "fullName": "Monica Jusu Bah",
+      "shortName": "M. Jusu Bah"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": true,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "16",
+     "athlete": {
+      "id": "259180",
+      "displayName": "Rebeca Bernal",
+      "fullName": "Rebeca Bernal",
+      "shortName": "R. Bernal"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": true,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "1"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "22",
+     "athlete": {
+      "id": "400033",
+      "displayName": "Scarlett Hill",
+      "fullName": "Scarlett Hill",
+      "shortName": "S. Hill"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "19",
+     "athlete": {
+      "id": "392944",
+      "displayName": "Ellen Wangerheim",
+      "fullName": "Ellen Wangerheim",
+      "shortName": "E. Wangerheim"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "36",
+     "athlete": {
+      "id": "397508",
+      "displayName": "Mared Griffiths",
+      "fullName": "Mared Griffiths",
+      "shortName": "M. Griffiths"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "homeAway": "away",
+   "winner": false,
+   "formation": "4-4-2",
+   "team": {
+    "id": "19975",
+    "displayName": "West Ham United",
+    "abbreviation": "WHU"
+   },
+   "roster": [
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "1",
+     "athlete": {
+      "id": "314330",
+      "displayName": "Constance Picaud",
+      "fullName": "Constance Picaud",
+      "shortName": "C. Picaud"
+     },
+     "position": {
+      "name": "Goalkeeper",
+      "displayName": "Goalkeeper",
+      "abbreviation": "G"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "1",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "28",
+     "athlete": {
+      "id": "267317",
+      "displayName": "Estelle Cascarino",
+      "fullName": "Estelle Cascarino",
+      "shortName": "E. Cascarino"
+     },
+     "position": {
+      "name": "Center Left Defender",
+      "displayName": "Center Left Defender",
+      "abbreviation": "CD-L"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "6",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "1"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "1"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "13",
+     "athlete": {
+      "id": "317807",
+      "displayName": "Eva Nyström",
+      "fullName": "Eva Nyström",
+      "shortName": "E. Nyström"
+     },
+     "position": {
+      "name": "Center Right Defender",
+      "displayName": "Center Right Defender",
+      "abbreviation": "CD-R"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "5",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "1"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "7",
+     "athlete": {
+      "id": "347137",
+      "displayName": "Inès Belloumou",
+      "fullName": "Inès Belloumou",
+      "shortName": "I. Belloumou"
+     },
+     "position": {
+      "name": "Left Back",
+      "displayName": "Left Back",
+      "abbreviation": "LB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "3",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "22",
+     "athlete": {
+      "id": "342200",
+      "displayName": "Nadine Riesen",
+      "fullName": "Nadine Riesen",
+      "shortName": "N. Riesen"
+     },
+     "position": {
+      "name": "Right Back",
+      "displayName": "Right Back",
+      "abbreviation": "RB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "2",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "1"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "1"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "8",
+     "athlete": {
+      "id": "144829",
+      "displayName": "Saki Kumagai",
+      "fullName": "Saki Kumagai",
+      "shortName": "S. Kumagai"
+     },
+     "position": {
+      "name": "Center Left Midfielder",
+      "displayName": "Center Left Midfielder",
+      "abbreviation": "CM-L"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "8",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "10",
+     "athlete": {
+      "id": "294259",
+      "displayName": "Katie Zelem",
+      "fullName": "Katie Zelem",
+      "shortName": "K. Zelem"
+     },
+     "position": {
+      "name": "Center Right Midfielder",
+      "displayName": "Center Right Midfielder",
+      "abbreviation": "CM-R"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "4",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "20",
+     "athlete": {
+      "id": "188069",
+      "displayName": "Viviane Asseyi",
+      "fullName": "Viviane Asseyi",
+      "shortName": "V. Asseyi"
+     },
+     "position": {
+      "name": "Left Midfielder",
+      "displayName": "Left Midfielder",
+      "abbreviation": "LM"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "11",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "1"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "1"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "5"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "77",
+     "athlete": {
+      "id": "330350",
+      "displayName": "Seraina Piubel",
+      "fullName": "Seraina Piubel",
+      "shortName": "S. Piubel"
+     },
+     "position": {
+      "name": "Right Midfielder",
+      "displayName": "Right Midfielder",
+      "abbreviation": "RM"
+     },
+     "subbedIn": false,
+     "subbedOut": true,
+     "formationPlace": "7",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "1"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "11",
+     "athlete": {
+      "id": "392349",
+      "displayName": "Kelly Gago",
+      "fullName": "Kelly Gago",
+      "shortName": "K. Gago"
+     },
+     "position": {
+      "name": "Center Left Forward",
+      "displayName": "Center Left Forward",
+      "abbreviation": "CF-L"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "9",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "1"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": true,
+     "jersey": "4",
+     "athlete": {
+      "id": "349057",
+      "displayName": "Oona Siren",
+      "fullName": "Oona Siren",
+      "shortName": "O. Siren"
+     },
+     "position": {
+      "name": "Center Right Forward",
+      "displayName": "Center Right Forward",
+      "abbreviation": "CF-R"
+     },
+     "subbedIn": false,
+     "subbedOut": true,
+     "formationPlace": "10",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "19",
+     "athlete": {
+      "id": "3116261",
+      "displayName": "Sienna-Rose Wareing",
+      "fullName": "Sienna-Rose Wareing",
+      "shortName": "S. Wareing"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "26",
+     "athlete": {
+      "id": "386686",
+      "displayName": "Niamh Peacock",
+      "fullName": "Niamh Peacock",
+      "shortName": "N. Peacock"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "27",
+     "athlete": {
+      "id": "384101",
+      "displayName": "Leila Wandeler",
+      "fullName": "Leila Wandeler",
+      "shortName": "L. Wandeler"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": true,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "61",
+     "athlete": {
+      "id": "3142726",
+      "displayName": "Sude N’Gozi Öztaş",
+      "fullName": "Sude N’Gozi Öztaş",
+      "shortName": "S. Öztaş"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "15",
+     "athlete": {
+      "id": "392905",
+      "displayName": "Ylinn Tennebø",
+      "fullName": "Ylinn Tennebø",
+      "shortName": "Y. Tennebø"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": true,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "17",
+     "athlete": {
+      "id": "294246",
+      "displayName": "Ebony Salmon",
+      "fullName": "Ebony Salmon",
+      "shortName": "E. Salmon"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": true,
+     "subbedOut": true,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "3",
+     "athlete": {
+      "id": "295638",
+      "displayName": "Laia Codina",
+      "fullName": "Laia Codina",
+      "shortName": "L. Codina"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "2",
+     "athlete": {
+      "id": "394416",
+      "displayName": "Yu Endo",
+      "fullName": "Yu Endo",
+      "shortName": "Y. Endo"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    },
+    {
+     "active": true,
+     "starter": false,
+     "jersey": "45",
+     "athlete": {
+      "id": "377631",
+      "displayName": "Rebekah Dowsett",
+      "fullName": "Rebekah Dowsett",
+      "shortName": "R. Dowsett"
+     },
+     "position": {
+      "name": "Substitute",
+      "displayName": "Substitute",
+      "abbreviation": "SUB"
+     },
+     "subbedIn": false,
+     "subbedOut": false,
+     "formationPlace": "0",
+     "stats": [
+      {
+       "name": "yellowCards",
+       "displayValue": "0"
+      },
+      {
+       "name": "shotsOnTarget",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalGoals",
+       "displayValue": "0"
+      },
+      {
+       "name": "totalShots",
+       "displayValue": "0"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

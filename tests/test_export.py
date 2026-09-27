@@ -19,6 +19,7 @@ def _make_db(path):
     lol.ensure_stats_table(db)
     lol.ensure_key_events_table(db)
     lol.ensure_closing_table(db)
+    lol.ensure_lineups_table(db)
     return db
 
 
@@ -69,7 +70,7 @@ def test_merge_dedupe_empty_existing():
 
 # ---------------------------------------------------------------- export_day: full round trip + re-run safety
 
-def test_export_day_writes_all_four_files(tmp_path):
+def test_export_day_writes_all_five_files(tmp_path):
     db_path = str(tmp_path / "live_odds.sqlite")
     out_dir = str(tmp_path / "out")
     db = _make_db(db_path)
@@ -79,12 +80,14 @@ def test_export_day_writes_all_four_files(tmp_path):
     lol.insert_key_event(db, {**{f: None for f in lol.EVENT_FIELDS},
                                "ts_utc": "2026-09-27T00:05:00Z", "event_id": "E1", "espn_event_id": "K1", "type": "Goal"})
     lol.upsert_closing_row(db, _odds_row("E1", "2026-09-27T00:00:00Z"))
+    lol.insert_lineup_rows(db, [{**{f: None for f in lol.LINEUP_FIELDS}, "ts_utc": "2026-09-27T00:01:00Z",
+                                 "event_id": "E1", "team_id": "1", "athlete_id": "9", "player": "P", "starter": 1}])
     db.commit()
     db.close()
 
     counts = export.export_day("2026-09-27", db_path=db_path, out_dir=out_dir)
-    assert counts == {"odds": 1, "stats": 1, "events": 1, "closing": 1}
-    for name in ("odds", "stats", "events", "closing"):
+    assert counts == {"odds": 1, "stats": 1, "events": 1, "closing": 1, "lineups": 1}
+    for name in ("odds", "stats", "events", "closing", "lineups"):
         path = os.path.join(out_dir, "2026-09-27", f"{name}.csv.gz")
         assert os.path.exists(path)
         rows = _read_gz_rows(path)
@@ -94,7 +97,7 @@ def test_export_day_writes_all_four_files(tmp_path):
 
 def test_export_day_no_db_yet_returns_zero_counts(tmp_path):
     counts = export.export_day("2026-09-27", db_path=str(tmp_path / "nope.sqlite"), out_dir=str(tmp_path / "out"))
-    assert counts == {"odds": 0, "stats": 0, "events": 0, "closing": 0}
+    assert counts == {"odds": 0, "stats": 0, "events": 0, "closing": 0, "lineups": 0}
     assert not os.path.exists(os.path.join(str(tmp_path / "out"), "2026-09-27"))
 
 
@@ -141,3 +144,14 @@ def test_export_day_closing_dedupes_on_event_id_only(tmp_path):
     db2.commit(); db2.close()
     counts = export.export_day("2026-09-27", db_path=db2_path, out_dir=out_dir)
     assert counts["closing"] == 1  # not duplicated
+
+
+def test_export_lineups_old_db_without_table_is_safe(tmp_path):
+    """A sqlite file written before the lineups table existed still exports (lineups -> 0)."""
+    db_path = str(tmp_path / "old.sqlite")
+    db = sqlite3.connect(db_path)
+    lol.ensure_table(db)
+    lol.insert_row(db, _odds_row("E1", "2026-09-27T00:05:00Z"))
+    db.commit(); db.close()
+    counts = export.export_day("2026-09-27", db_path=db_path, out_dir=str(tmp_path / "out"))
+    assert counts["odds"] == 1 and counts["lineups"] == 0

@@ -22,7 +22,7 @@ Endpoint (undocumented, no key): https://site.web.api.espn.com/apis/site/v2/spor
     whatever else ESPN sends — logged once per run and preserved raw per row); and "keyEvents", a
     chronological list of goals/cards/penalties/substitutions/etc. with minute, team and player.
 
-Three sqlite tables, `live_odds`'s schema untouched for backward compatibility:
+Sqlite tables, `live_odds`'s schema untouched for backward compatibility:
   - `live_odds` (unchanged): one DraftKings snapshot per event per poll tick.
   - `live_stats`: one boxscore-stat snapshot per team per event, pulled from /summary at most every
     `--stats-interval` seconds (default 120s) per live event.
@@ -31,6 +31,13 @@ Three sqlite tables, `live_odds`'s schema untouched for backward compatibility:
   - `closing_odds`: the last `live_odds` row captured while an event was still `pre` (or the current
     one, if none was ever captured), copied over the moment its state first flips to `in` — one row
     per event (`UNIQUE(event_id)`), giving a clean closing-line benchmark distinct from in-play noise.
+  - `lineups`: the confirmed starting XIs + bench from /summary's "rosters" (team, player, ESPN athlete
+    id, position, starter flag, jersey, formation, formationPlace), stored ONCE per event
+    (`UNIQUE(event_id, team_id, athlete_id)`, `INSERT OR IGNORE`, so ts_utc = first seen). ESPN only
+    fills `rosters[].roster` once teams are announced (~60 min before kickoff), so every `pre` event
+    kicking off within `--lineup-window-min` (default 75) gets one /summary call per
+    `--lineup-interval` (default 300 s) until its lineups appear; state='pre' on those rows. If the
+    logger only sees the match once it is live, the first in-play /summary fills them (state='in').
 
 Robustness: every HTTP call retries with backoff and returns None (never raises) on failure — 429s
 and 5xx back off and retry (honoring `Retry-After` when present), other 4xx responses (e.g. a summary
@@ -214,16 +221,20 @@ def within_window(event: dict, hours: float = 3.0, now: datetime | None = None) 
     if state != "pre":
         return False
     now = now or datetime.now(timezone.utc)
-    for fmt in ("%Y-%m-%dT%H:%MZ", "%Y-%m-%dT%H:%M:%SZ"):
-        try:
-            kickoff = datetime.strptime(event.get("date", ""), fmt).replace(tzinfo=timezone.utc)
-            break
-        except ValueError:
-            kickoff = None
+    kickoff = _parse_kickoff(event.get("date"))
     if kickoff is None:
         return False
     delta = (kickoff - now).total_seconds()
     return -1800 <= delta <= hours * 3600
+
+
+def _parse_kickoff(s: str | None) -> datetime | None:
+    for fmt in ("%Y-%m-%dT%H:%MZ", "%Y-%m-%dT%H:%M:%SZ"):
+        try:
+            return datetime.strptime(s or "", fmt).replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
+    return None
 
 
 # --------------------------------------------------------------------------- #
@@ -255,6 +266,11 @@ _STATS_CMP_FIELDS = [f for f in STATS_FIELDS if f != "ts_utc"]
 EVENT_FIELDS = ["ts_utc", "event_id", "espn_event_id", "league_slug", "type", "type_slug", "minute",
                  "period", "team_id", "team_name", "player", "text", "scoring_play", "wallclock"]
 EVENT_INT_FIELDS = {"period", "scoring_play"}
+
+LINEUP_FIELDS = ["ts_utc", "event_id", "league_slug", "state", "team_id", "team_side", "team_name", "formation",
+                 "athlete_id", "player", "position", "position_abbr", "starter", "jersey", "formation_place",
+                 "subbed_in", "subbed_out"]
+LINEUP_INT_FIELDS = {"starter", "subbed_in", "subbed_out"}
 
 # substring/exact markers of summary["keyEvents"][*]["type"]["type"] we keep (goals in all their
 # forms — "goal", "goal---header", "goal---volley", "own-goal" — red cards, penalties, subs); things
@@ -338,6 +354,57 @@ def parse_key_events(summary: dict | None, event_id: str, league_slug: str | Non
             "wallclock": e.get("wallclock"),
         })
     return rows
+
+
+def _flag(v) -> int:
+    """ESPN sends subbedIn/subbedOut as a bool after the match but as {"didSub": false} before it."""
+    if isinstance(v, dict):
+        v = v.get("didSub")
+    return 1 if v else 0
+
+
+def parse_lineups(summary: dict | None, event_id: str, league_slug: str | None, state: str | None) -> list[dict]:
+    """Flattens summary['rosters'][*]['roster'] into one row per listed player (starters and bench).
+    Before teams are announced ESPN sends each side with no 'roster' (or an empty one) -> []. Every
+    field is null-tolerant; `starter`/`subbed_in`/`subbed_out` are 0/1 ints."""
+    rows = []
+    for t in (summary or {}).get("rosters") or []:
+        if not t:
+            continue
+        team = t.get("team") or {}
+        for p in t.get("roster") or []:
+            if not p:
+                continue
+            ath = p.get("athlete") or {}
+            pos = p.get("position") or {}
+            rows.append({
+                "event_id": event_id,
+                "league_slug": league_slug,
+                "state": state,
+                "team_id": team.get("id"),
+                "team_side": t.get("homeAway"),
+                "team_name": team.get("displayName"),
+                "formation": t.get("formation"),
+                "athlete_id": ath.get("id"),
+                "player": ath.get("displayName") or ath.get("fullName"),
+                "position": pos.get("name") or pos.get("displayName"),
+                "position_abbr": pos.get("abbreviation"),
+                "starter": 1 if p.get("starter") else 0,
+                "jersey": p.get("jersey"),
+                "formation_place": p.get("formationPlace"),
+                "subbed_in": _flag(p.get("subbedIn")),
+                "subbed_out": _flag(p.get("subbedOut")),
+            })
+    return rows
+
+
+def lineups_confirmed(rows: list[dict]) -> bool:
+    """True once at least one side lists a full XI of starters (ESPN publishes both sides together)."""
+    starters: dict = {}
+    for r in rows:
+        if r.get("starter"):
+            starters[r.get("team_id")] = starters.get(r.get("team_id"), 0) + 1
+    return any(n >= 11 for n in starters.values())
 
 
 # --------------------------------------------------------------------------- #
@@ -456,6 +523,30 @@ def insert_key_event(db: sqlite3.Connection, row: dict) -> bool:
     return cur.rowcount > 0
 
 
+def ensure_lineups_table(db: sqlite3.Connection) -> None:
+    cols = ", ".join(f"{f} {'INTEGER' if f in LINEUP_INT_FIELDS else 'TEXT'}" for f in LINEUP_FIELDS)
+    db.execute(f"CREATE TABLE IF NOT EXISTS lineups (id INTEGER PRIMARY KEY AUTOINCREMENT, {cols}, "
+               f"UNIQUE(event_id, team_id, athlete_id))")
+    db.execute("CREATE INDEX IF NOT EXISTS idx_lineups_event ON lineups(event_id, id)")
+    db.commit()
+
+
+def insert_lineup_rows(db: sqlite3.Connection, rows: list[dict]) -> int:
+    """INSERT OR IGNORE keyed on (event_id, team_id, athlete_id): the first sighting (and its ts_utc)
+    wins; returns the number of new rows."""
+    cols = ", ".join(LINEUP_FIELDS)
+    qs = ", ".join("?" for _ in LINEUP_FIELDS)
+    n = 0
+    for r in rows:
+        cur = db.execute(f"INSERT OR IGNORE INTO lineups ({cols}) VALUES ({qs})", tuple(r.get(f) for f in LINEUP_FIELDS))
+        n += cur.rowcount > 0
+    return n
+
+
+def has_lineups(db: sqlite3.Connection, event_id: str) -> bool:
+    return db.execute("SELECT 1 FROM lineups WHERE event_id=? LIMIT 1", (event_id,)).fetchone() is not None
+
+
 def ensure_closing_table(db: sqlite3.Connection) -> None:
     cols = ", ".join(f"{f} {_coltype(f)}" for f in FIELDS)
     db.execute(f"CREATE TABLE IF NOT EXISTS closing_odds (id INTEGER PRIMARY KEY AUTOINCREMENT, {cols}, "
@@ -478,7 +569,7 @@ def upsert_closing_row(db: sqlite3.Connection, row: dict) -> None:
 class LiveOddsLogger:
     def __init__(self, db_path: str | None = None, interval: int = 60, slugs=DEFAULT_SLUGS,
                  window_hours: float = 3.0, slug_sweep_secs: float = 300.0, stats_interval: float = 120.0,
-                 summary_secs: float | None = None):
+                 summary_secs: float | None = None, lineup_window_min: float = 75.0, lineup_interval: float = 300.0):
         self.db_path = db_path or os.path.join(os.path.expanduser(os.getenv("HYDRA_HOME", "~/.hydra_scout")), "live_odds.sqlite")
         os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
         # Safety net: keep a dated copy of an existing DB before opening it (schema changes are additive only).
@@ -493,6 +584,7 @@ class LiveOddsLogger:
         ensure_stats_table(self.db)
         ensure_key_events_table(self.db)
         ensure_closing_table(self.db)
+        ensure_lineups_table(self.db)
         self.interval = interval
         self.slugs = list(slugs)
         self.window_hours = window_hours
@@ -506,6 +598,10 @@ class LiveOddsLogger:
         self._prev_state: dict[str, str] = {}
         self._last_pre_row: dict[str, dict] = {}
         self._stat_names_logged = False
+        self.lineup_window_min = lineup_window_min
+        self.lineup_interval = lineup_interval
+        self._lineups_done: set[str] = set()
+        self._last_lineup_poll: dict[str, float] = {}
         self._stop = False
 
     def poll_once(self) -> int:
@@ -533,6 +629,7 @@ class LiveOddsLogger:
                 if self._prev_state.pop(event_id, None) is not None:
                     self._last_pre_row.pop(event_id, None)
                     self._last_summary.pop(event_id, None)
+                    self._last_lineup_poll.pop(event_id, None)
                 continue
             row = extract_row(event, slug, name)
             if row is None or not event_id:
@@ -543,6 +640,12 @@ class LiveOddsLogger:
             if row["state"] == "in" and not row["provider"] and summary:
                 self._apply_summary_odds(row, summary)
             row["ts_utc"] = ts_utc
+            if row["state"] == "pre" and self._lineup_due(event_id, event):
+                self._last_lineup_poll[event_id] = time.time()
+                pre_summary = self._fetch_summary(event_id, row.get("league_slug") or slug, throttle=False)
+                self._store_lineups(pre_summary, event_id, row)
+            elif row["state"] == "in" and summary:
+                self._store_lineups(summary, event_id, row)
             self._track_closing(event_id, row)
             if not row_unchanged(self.db, event_id, row):
                 insert_row(self.db, row)
@@ -555,9 +658,43 @@ class LiveOddsLogger:
     def _summary_due(self, event_id: str) -> bool:
         return (time.time() - self._last_summary.get(event_id, 0.0)) >= self.stats_interval
 
-    def _fetch_summary(self, event_id: str, slug: str | None) -> dict | None:
-        self._last_summary[event_id] = time.time()
+    def _fetch_summary(self, event_id: str, slug: str | None, throttle: bool = True) -> dict | None:
+        if throttle:
+            self._last_summary[event_id] = time.time()
         return _get_json(self.session, f"{BASE}/{slug or 'all'}/summary?event={event_id}", retries=1)
+
+    def _lineups_known(self, event_id: str) -> bool:
+        if event_id in self._lineups_done:
+            return True
+        if has_lineups(self.db, event_id):   # e.g. captured by an earlier process on the same db
+            self._lineups_done.add(event_id)
+            return True
+        return False
+
+    def _lineup_due(self, event_id: str, event: dict, now: datetime | None = None) -> bool:
+        """A 'pre' event kicking off within lineup_window_min whose lineups we don't have yet, polled
+        at most every lineup_interval seconds."""
+        if self.lineup_window_min <= 0 or self._lineups_known(event_id):
+            return False
+        if (time.time() - self._last_lineup_poll.get(event_id, 0.0)) < self.lineup_interval:
+            return False
+        kickoff = _parse_kickoff(event.get("date"))
+        if kickoff is None:
+            return False
+        now = now or datetime.now(timezone.utc)
+        return (kickoff - now).total_seconds() <= self.lineup_window_min * 60
+
+    def _store_lineups(self, summary: dict | None, event_id: str, row: dict) -> None:
+        if not summary or self._lineups_known(event_id):
+            return
+        rows = parse_lineups(summary, event_id, row.get("league_slug"), row.get("state"))
+        if not lineups_confirmed(rows):
+            return
+        for r in rows:
+            r["ts_utc"] = row["ts_utc"]
+        n = insert_lineup_rows(self.db, rows)
+        self._lineups_done.add(event_id)
+        print(f"[live_odds_logger] {event_id}: lineups captured ({n} player row(s), state={row.get('state')})", flush=True)
 
     def _apply_summary_odds(self, row: dict, summary: dict) -> None:
         pc = (summary or {}).get("pickcenter") or []
@@ -667,11 +804,16 @@ def main(argv=None) -> None:
     p.add_argument("--stats-interval", type=float, default=120.0,
                    help="seconds between /summary pulls (live_stats + key_events + odds fallback) per live event (default 120)")
     p.add_argument("--summary-secs", type=float, default=None, help=argparse.SUPPRESS)  # deprecated alias
+    p.add_argument("--lineup-window-min", type=float, default=75.0,
+                   help="poll /summary for lineups of 'pre' events kicking off within this many minutes (0 disables)")
+    p.add_argument("--lineup-interval", type=float, default=300.0,
+                   help="seconds between lineup polls per pre-match event until its lineups appear (default 300)")
     p.add_argument("--db", default=None, help="sqlite path (default ~/.hydra_scout/live_odds.sqlite)")
     args = p.parse_args(argv)
     slugs = [s.strip() for s in args.slugs.split(",") if s.strip()]
     logger = LiveOddsLogger(db_path=args.db, interval=args.interval, slugs=slugs, window_hours=args.window_hours,
-                             stats_interval=args.stats_interval, summary_secs=args.summary_secs)
+                             stats_interval=args.stats_interval, summary_secs=args.summary_secs,
+                             lineup_window_min=args.lineup_window_min, lineup_interval=args.lineup_interval)
     schedule = f"until={args.until:%Y-%m-%dT%H:%M:%SZ}" if args.until else f"minutes={args.minutes}"
     print(f"[live_odds_logger] db={logger.db_path} interval={args.interval}s {schedule} "
           f"window={args.window_hours}h stats_interval={logger.stats_interval}s slugs={slugs or 'none'}", flush=True)
