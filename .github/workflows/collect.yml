@@ -1,0 +1,77 @@
+name: Collect live odds
+
+# Free on a public repo (unmetered Actions minutes on standard runners). Fires 4x/day and runs for
+# ~5h50m each time so the whole day is covered without ever hitting GitHub's 6h/job hard limit.
+on:
+  schedule:
+    - cron: "0 0,6,12,18 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: collector
+  cancel-in-progress: false   # never kill a run mid-collection; a late-firing schedule just queues
+
+permissions:
+  contents: write   # to commit data/live/** back to this repo
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355   # 5h55m ceiling; the collector itself stops at 5h50m, leaving room to export+push
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compute run window (UTC)
+        id: window
+        run: |
+          echo "until=$(date -u -d '+5 hours 50 minutes' +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+          echo "day=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Run collector
+        run: |
+          python -m hydra_scout.collect.live_odds_logger \
+            --interval 60 \
+            --until "${{ steps.window.outputs.until }}" \
+            --db "$RUNNER_TEMP/live_odds.sqlite"
+
+      - name: Export to data/live/**
+        run: |
+          set -e
+          python -m hydra_scout.collect.export \
+            --day "${{ steps.window.outputs.day }}" --db "$RUNNER_TEMP/live_odds.sqlite" --out-dir data/live
+          # belt-and-braces: if the run somehow drifted past midnight UTC, export that day too
+          # (export_day is append-safe, so re-exporting the same day here is always a harmless no-op)
+          TODAY="$(date -u +%Y-%m-%d)"
+          if [ "$TODAY" != "${{ steps.window.outputs.day }}" ]; then
+            python -m hydra_scout.collect.export \
+              --day "$TODAY" --db "$RUNNER_TEMP/live_odds.sqlite" --out-dir data/live
+          fi
+
+      - name: Commit and push
+        run: |
+          set -e
+          git config user.name "hydra-collector-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/live
+          if git diff --cached --quiet; then
+            echo "no new data to commit"
+            exit 0
+          fi
+          git commit -m "collector: live odds/stats/events through ${{ steps.window.outputs.until }}"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "push attempt $attempt failed, retrying in $((attempt * 5))s..."
+            sleep $((attempt * 5))
+          done
+          echo "push failed after 3 attempts" >&2
+          exit 1

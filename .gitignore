@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.sqlite
+*.sqlite3
+.venv/
+*.bak
+*.sqlite.*.bak
+.tools/
+start_log.txt

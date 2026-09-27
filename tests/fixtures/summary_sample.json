@@ -1,0 +1,1154 @@
+{
+ "boxscore": {
+  "teams": [
+   {
+    "team": {
+     "id": "218",
+     "displayName": "Cruz Azul"
+    },
+    "homeAway": "home",
+    "statistics": [
+     {
+      "name": "foulsCommitted",
+      "displayValue": "12",
+      "label": "Fouls"
+     },
+     {
+      "name": "yellowCards",
+      "displayValue": "3",
+      "label": "Yellow Cards"
+     },
+     {
+      "name": "redCards",
+      "displayValue": "0",
+      "label": "Red Cards"
+     },
+     {
+      "name": "offsides",
+      "displayValue": "3",
+      "label": "Offsides"
+     },
+     {
+      "name": "wonCorners",
+      "displayValue": "1",
+      "label": "Corner Kicks"
+     },
+     {
+      "name": "saves",
+      "displayValue": "4",
+      "label": "Saves"
+     },
+     {
+      "name": "possessionPct",
+      "displayValue": "48.5",
+      "label": "Possession"
+     },
+     {
+      "name": "totalShots",
+      "displayValue": "12",
+      "label": "SHOTS"
+     },
+     {
+      "name": "shotsOnTarget",
+      "displayValue": "5",
+      "label": "ON GOAL"
+     },
+     {
+      "name": "shotPct",
+      "displayValue": "0.4",
+      "label": "On Target %"
+     },
+     {
+      "name": "penaltyKickGoals",
+      "displayValue": "0",
+      "label": "Penalty Goals"
+     },
+     {
+      "name": "penaltyKickShots",
+      "displayValue": "0",
+      "label": "Penalty Kicks Taken"
+     },
+     {
+      "name": "accuratePasses",
+      "displayValue": "226",
+      "label": "Accurate Passes"
+     },
+     {
+      "name": "totalPasses",
+      "displayValue": "297",
+      "label": "Passes"
+     },
+     {
+      "name": "passPct",
+      "displayValue": "0.8",
+      "label": "Pass Completion %"
+     },
+     {
+      "name": "accurateCrosses",
+      "displayValue": "2",
+      "label": "Accurate Crosses"
+     },
+     {
+      "name": "totalCrosses",
+      "displayValue": "16",
+      "label": "Crosses"
+     },
+     {
+      "name": "crossPct",
+      "displayValue": "0.1",
+      "label": "Cross %"
+     },
+     {
+      "name": "totalLongBalls",
+      "displayValue": "50",
+      "label": "Long Balls"
+     },
+     {
+      "name": "accurateLongBalls",
+      "displayValue": "22",
+      "label": "Accurate Long Balls"
+     },
+     {
+      "name": "longballPct",
+      "displayValue": "0.4",
+      "label": "Long Balls %"
+     },
+     {
+      "name": "blockedShots",
+      "displayValue": "3",
+      "label": "Blocked Shots"
+     },
+     {
+      "name": "effectiveTackles",
+      "displayValue": "4",
+      "label": "Effective Tackles"
+     },
+     {
+      "name": "totalTackles",
+      "displayValue": "8",
+      "label": "Tackles"
+     },
+     {
+      "name": "tacklePct",
+      "displayValue": "0.5",
+      "label": "Tackle %"
+     },
+     {
+      "name": "interceptions",
+      "displayValue": "9",
+      "label": "Interceptions"
+     },
+     {
+      "name": "effectiveClearance",
+      "displayValue": "13",
+      "label": "Effective Clearances"
+     },
+     {
+      "name": "totalClearance",
+      "displayValue": "13",
+      "label": "Clearances"
+     }
+    ]
+   },
+   {
+    "team": {
+     "id": "223",
+     "displayName": "Toluca"
+    },
+    "homeAway": "away",
+    "statistics": [
+     {
+      "name": "foulsCommitted",
+      "displayValue": "15",
+      "label": "Fouls"
+     },
+     {
+      "name": "yellowCards",
+      "displayValue": "1",
+      "label": "Yellow Cards"
+     },
+     {
+      "name": "redCards",
+      "displayValue": "0",
+      "label": "Red Cards"
+     },
+     {
+      "name": "offsides",
+      "displayValue": "2",
+      "label": "Offsides"
+     },
+     {
+      "name": "wonCorners",
+      "displayValue": "4",
+      "label": "Corner Kicks"
+     },
+     {
+      "name": "saves",
+      "displayValue": "4",
+      "label": "Saves"
+     },
+     {
+      "name": "possessionPct",
+      "displayValue": "51.5",
+      "label": "Possession"
+     },
+     {
+      "name": "totalShots",
+      "displayValue": "17",
+      "label": "SHOTS"
+     },
+     {
+      "name": "shotsOnTarget",
+      "displayValue": "7",
+      "label": "ON GOAL"
+     },
+     {
+      "name": "shotPct",
+      "displayValue": "0.4",
+      "label": "On Target %"
+     },
+     {
+      "name": "penaltyKickGoals",
+      "displayValue": "0",
+      "label": "Penalty Goals"
+     },
+     {
+      "name": "penaltyKickShots",
+      "displayValue": "1",
+      "label": "Penalty Kicks Taken"
+     },
+     {
+      "name": "accuratePasses",
+      "displayValue": "256",
+      "label": "Accurate Passes"
+     },
+     {
+      "name": "totalPasses",
+      "displayValue": "315",
+      "label": "Passes"
+     },
+     {
+      "name": "passPct",
+      "displayValue": "0.8",
+      "label": "Pass Completion %"
+     },
+     {
+      "name": "accurateCrosses",
+      "displayValue": "1",
+      "label": "Accurate Crosses"
+     },
+     {
+      "name": "totalCrosses",
+      "displayValue": "13",
+      "label": "Crosses"
+     },
+     {
+      "name": "crossPct",
+      "displayValue": "0.1",
+      "label": "Cross %"
+     },
+     {
+      "name": "totalLongBalls",
+      "displayValue": "48",
+      "label": "Long Balls"
+     },
+     {
+      "name": "accurateLongBalls",
+      "displayValue": "24",
+      "label": "Accurate Long Balls"
+     },
+     {
+      "name": "longballPct",
+      "displayValue": "0.5",
+      "label": "Long Balls %"
+     },
+     {
+      "name": "blockedShots",
+      "displayValue": "2",
+      "label": "Blocked Shots"
+     },
+     {
+      "name": "effectiveTackles",
+      "displayValue": "13",
+      "label": "Effective Tackles"
+     },
+     {
+      "name": "totalTackles",
+      "displayValue": "18",
+      "label": "Tackles"
+     },
+     {
+      "name": "tacklePct",
+      "displayValue": "0.7",
+      "label": "Tackle %"
+     },
+     {
+      "name": "interceptions",
+      "displayValue": "13",
+      "label": "Interceptions"
+     },
+     {
+      "name": "effectiveClearance",
+      "displayValue": "20",
+      "label": "Effective Clearances"
+     },
+     {
+      "name": "totalClearance",
+      "displayValue": "20",
+      "label": "Clearances"
+     }
+    ]
+   }
+  ]
+ },
+ "keyEvents": [
+  {
+   "id": "52906083",
+   "type": {
+    "id": "80",
+    "text": "Kickoff",
+    "type": "kickoff"
+   },
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 0.0,
+    "displayValue": ""
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-26T22:49:35Z"
+  },
+  {
+   "id": "52906527",
+   "type": {
+    "id": "70",
+    "text": "Goal",
+    "type": "goal"
+   },
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 387.0,
+    "displayValue": "7'"
+   },
+   "scoringPlay": true,
+   "wallclock": "2026-09-26T22:56:03Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   },
+   "text": "Goal! Cruz Azul 1, Toluca 0. Nicol\u00e1s Ib\u00e1\u00f1ez (Cruz Azul) right footed shot from the right side of the box to the centre of the goal. Assisted by Jos\u00e9 Paradela.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "207549",
+      "displayName": "Nicol\u00e1s Ib\u00e1\u00f1ez"
+     }
+    },
+    {
+     "athlete": {
+      "id": "277270",
+      "displayName": "Jos\u00e9 Paradela"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52907975",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 1703.0,
+    "displayValue": "29'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-26T23:17:58Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   },
+   "text": "Delay in match because of an injury Andr\u00e9s Gudi\u00f1o (Cruz Azul)."
+  },
+  {
+   "id": "52907974",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 1703.0,
+    "displayValue": "29'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-26T23:17:59Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   }
+  },
+  {
+   "id": "52907977",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 1835.0,
+    "displayValue": "31'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-26T23:20:10Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   },
+   "text": "Delay over. They are ready to continue."
+  },
+  {
+   "id": "52907976",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 1835.0,
+    "displayValue": "31'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-26T23:20:10Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   }
+  },
+  {
+   "id": "52908751",
+   "type": {
+    "id": "94",
+    "text": "Yellow Card",
+    "type": "yellow-card"
+   },
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 2207.0,
+    "displayValue": "37'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-26T23:26:22Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   },
+   "text": "Diego Barbosa (Toluca) is shown the yellow card for a bad foul.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "233104",
+      "displayName": "Diego Zaragoza"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52908760",
+   "type": {
+    "id": "137",
+    "text": "Goal - Header",
+    "type": "goal---header"
+   },
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 2238.0,
+    "displayValue": "38'"
+   },
+   "scoringPlay": true,
+   "wallclock": "2026-09-26T23:26:54Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   },
+   "text": "Goal! Cruz Azul 2, Toluca 0. Gabriel Fern\u00e1ndez (Cruz Azul) header from the centre of the box to the bottom right corner. Assisted by Nicol\u00e1s Ib\u00e1\u00f1ez with a cross.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "115447",
+      "displayName": "Gabriel Fernandez"
+     }
+    },
+    {
+     "athlete": {
+      "id": "207549",
+      "displayName": "Nicol\u00e1s Ib\u00e1\u00f1ez"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52909361",
+   "type": {
+    "id": "94",
+    "text": "Yellow Card",
+    "type": "yellow-card"
+   },
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 2700.0,
+    "displayValue": "45'+2'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-26T23:36:26Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   },
+   "text": "Agust\u00edn Palavecino (Cruz Azul) is shown the yellow card.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "219001",
+      "displayName": "Agust\u00edn Palavecino"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52909460",
+   "type": {
+    "id": "81",
+    "text": "Halftime",
+    "type": "halftime"
+   },
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 2700.0,
+    "displayValue": "45'+5'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-26T23:38:41Z",
+   "text": "First Half ends, Cruz Azul 2, Toluca 0."
+  },
+  {
+   "id": "52911359",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 2700.0,
+    "displayValue": "45'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-26T23:55:16Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   },
+   "text": "Substitution, Toluca. \u00c9rick Guti\u00e9rrez replaces Diego Barbosa.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "194311",
+      "displayName": "\u00c9rick Guti\u00e9rrez"
+     }
+    },
+    {
+     "athlete": {
+      "id": "233104",
+      "displayName": "Diego Zaragoza"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52911426",
+   "type": {
+    "id": "82",
+    "text": "Start 2nd Half",
+    "type": "start-2nd-half"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 2700.0,
+    "displayValue": "45'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-26T23:55:46Z",
+   "text": "Second Half begins Cruz Azul 2, Toluca 0."
+  },
+  {
+   "id": "52912134",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 2970.0,
+    "displayValue": "50'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:00:16Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   },
+   "text": "Delay in match because of an injury Andr\u00e9s Gudi\u00f1o (Cruz Azul)."
+  },
+  {
+   "id": "52912135",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 2970.0,
+    "displayValue": "50'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:00:16Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   }
+  },
+  {
+   "id": "52912136",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3020.0,
+    "displayValue": "51'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:01:07Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   },
+   "text": "Delay over. They are ready to continue."
+  },
+  {
+   "id": "52912137",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3020.0,
+    "displayValue": "51'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:01:07Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   }
+  },
+  {
+   "id": "52912378",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3030.0,
+    "displayValue": "51'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:01:16Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   }
+  },
+  {
+   "id": "52912380",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3084.0,
+    "displayValue": "52'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:02:11Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   }
+  },
+  {
+   "id": "52912914",
+   "type": {
+    "id": "94",
+    "text": "Yellow Card",
+    "type": "yellow-card"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3112.0,
+    "displayValue": "52'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:02:39Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   },
+   "text": "Willer Ditta (Cruz Azul) is shown the yellow card for a bad foul.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "270229",
+      "displayName": "Willer Ditta"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52912492",
+   "type": {
+    "id": "98",
+    "text": "Penalty - Scored",
+    "type": "penalty---scored"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3251.0,
+    "displayValue": "55'"
+   },
+   "scoringPlay": true,
+   "wallclock": "2026-09-27T00:04:58Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   },
+   "text": "Goal! Cruz Azul 2, Toluca 1. Helinho (Toluca) converts the penalty with a left footed shot to the centre of the goal.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "266679",
+      "displayName": "Helinho"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52912651",
+   "type": {
+    "id": "70",
+    "text": "Goal",
+    "type": "goal"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3305.0,
+    "displayValue": "56'"
+   },
+   "scoringPlay": true,
+   "wallclock": "2026-09-27T00:05:52Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   },
+   "text": "Goal! Cruz Azul 2, Toluca 2. Alexis Vega (Toluca) right footed shot from outside the box to the bottom right corner. Assisted by Helinho.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "229487",
+      "displayName": "Alexis Vega"
+     }
+    },
+    {
+     "athlete": {
+      "id": "266679",
+      "displayName": "Helinho"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52912792",
+   "type": {
+    "id": "94",
+    "text": "Yellow Card",
+    "type": "yellow-card"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3410.0,
+    "displayValue": "57'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:07:37Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   },
+   "text": "Gonzalo Piovi (Cruz Azul) is shown the yellow card for a bad foul.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "192166",
+      "displayName": "Gonzalo Piovi"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52912794",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3435.0,
+    "displayValue": "58'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:08:01Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   },
+   "text": "Delay in match because of an injury Paulinho (Toluca)."
+  },
+  {
+   "id": "52912793",
+   "type": {
+    "id": "129",
+    "text": "Start Delay",
+    "type": "start-delay"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3435.0,
+    "displayValue": "58'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:08:02Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   }
+  },
+  {
+   "id": "52912911",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3515.0,
+    "displayValue": "59'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:09:22Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   },
+   "text": "Delay over. They are ready to continue."
+  },
+  {
+   "id": "52912912",
+   "type": {
+    "id": "130",
+    "text": "End Delay",
+    "type": "end-delay"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 3515.0,
+    "displayValue": "59'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:09:22Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   }
+  },
+  {
+   "id": "52914611",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 4355.0,
+    "displayValue": "73'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:23:21Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   },
+   "text": "Substitution, Toluca. Jes\u00fas Angulo replaces P\u00e1vel P\u00e9rez.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "282615",
+      "displayName": "Jes\u00fas Angulo"
+     }
+    },
+    {
+     "athlete": {
+      "id": "324719",
+      "displayName": "P\u00e1vel P\u00e9rez"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52914845",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 4525.0,
+    "displayValue": "76'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:26:12Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   },
+   "text": "Substitution, Cruz Azul. Andr\u00e9s Monta\u00f1o replaces Nicol\u00e1s Ib\u00e1\u00f1ez.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "336641",
+      "displayName": "Andres Monta\u00f1o"
+     }
+    },
+    {
+     "athlete": {
+      "id": "207549",
+      "displayName": "Nicol\u00e1s Ib\u00e1\u00f1ez"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52914846",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 4534.0,
+    "displayValue": "76'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:26:20Z",
+   "team": {
+    "id": "218",
+    "displayName": "Cruz Azul"
+   },
+   "text": "Substitution, Cruz Azul. Luka Romero replaces Agust\u00edn Palavecino.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "303844",
+      "displayName": "Luka Romero"
+     }
+    },
+    {
+     "athlete": {
+      "id": "219001",
+      "displayName": "Agust\u00edn Palavecino"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52914943",
+   "type": {
+    "id": "70",
+    "text": "Goal",
+    "type": "goal"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 4651.0,
+    "displayValue": "78'"
+   },
+   "scoringPlay": true,
+   "wallclock": "2026-09-27T00:28:18Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   },
+   "text": "Goal! Cruz Azul 2, Toluca 3. Alexis Vega (Toluca) left footed shot from the centre of the box to the bottom right corner. Assisted by Nicol\u00e1s Castro following a fast break.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "229487",
+      "displayName": "Alexis Vega"
+     }
+    },
+    {
+     "athlete": {
+      "id": "57149",
+      "displayName": "Nicol\u00e1s Castro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "52915440",
+   "type": {
+    "id": "76",
+    "text": "Substitution",
+    "type": "substitution"
+   },
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 4915.0,
+    "displayValue": "82'"
+   },
+   "scoringPlay": false,
+   "wallclock": "2026-09-27T00:32:41Z",
+   "team": {
+    "id": "223",
+    "displayName": "Toluca"
+   },
+   "text": "Substitution, Toluca. Jorge D\u00edaz replaces Alexis Vega.",
+   "participants": [
+    {
+     "athlete": {
+      "id": "269177",
+      "displayName": "Jorge D\u00edaz"
+     }
+    },
+    {
+     "athlete": {
+      "id": "229487",
+      "displayName": "Alexis Vega"
+     }
+    }
+   ]
+  }
+ ],
+ "header": {
+  "competitions": [
+   {
+    "status": {
+     "displayClock": "86'",
+     "period": 2,
+     "type": {
+      "id": "26",
+      "name": "STATUS_SECOND_HALF",
+      "state": "in",
+      "completed": false,
+      "description": "Second Half",
+      "detail": "86'",
+      "shortDetail": "86'",
+      "statusPrimary": "86'"
+     },
+     "displayPeriod": "2nd"
+    }
+   }
+  ]
+ }
+}

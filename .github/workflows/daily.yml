@@ -1,0 +1,57 @@
+name: Daily football-data CSVs
+
+# football-data.co.uk's own closing-line CSVs for the current season, refreshed once a day. Cheap
+# (six small downloads) and independent of the live collector above, so it gets its own workflow.
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Big-5 + Brasileirão CSVs
+        run: |
+          set -e
+          mkdir -p data/fd
+          # season code = two 2-digit years, e.g. 2026-27 -> 2627; derive from today's UTC date so
+          # this keeps working across a season rollover without editing the workflow.
+          Y=$(date -u +%Y)
+          M=$(date -u +%-m)
+          if [ "$M" -ge 7 ]; then START=$Y; else START=$((Y - 1)); fi
+          END=$((START + 1))
+          SEASON="$(printf '%02d' $((START % 100)))$(printf '%02d' $((END % 100)))"
+          echo "season=$SEASON"
+          for code in E0 SP1 D1 I1 F1; do
+            curl -fsSL "https://www.football-data.co.uk/mmz4281/${SEASON}/${code}.csv" -o "data/fd/${code}.csv"
+          done
+          curl -fsSL "https://www.football-data.co.uk/new/BRA.csv" -o "data/fd/BRA.csv"
+
+      - name: Commit if changed
+        run: |
+          set -e
+          git config user.name "hydra-collector-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/fd
+          if git diff --cached --quiet; then
+            echo "no changes"
+            exit 0
+          fi
+          git commit -m "daily: football-data CSV refresh $(date -u +%Y-%m-%d)"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "push attempt $attempt failed, retrying in $((attempt * 5))s..."
+            sleep $((attempt * 5))
+          done
+          echo "push failed after 3 attempts" >&2
+          exit 1
